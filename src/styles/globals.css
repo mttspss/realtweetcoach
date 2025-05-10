@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Rimuoviamo :root generato da shadcn per il tema chiaro, imponiamo il nostro tema scuro */
+  .dark, :root { /* Applichiamo queste variabili a :root e .dark per coerenza */
+    --background: 222.2 84% 4.9%; /* Grigio scuro di base per shadcn */
+    --foreground: 210 40% 98%;   /* Testo quasi bianco per shadcn */
+
+    --card: 222.2 84% 6.9%; /* Leggermente più chiaro per le card shadcn, rispetto a background */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 5.9%; /* Simile a card per popover shadcn */
+    --popover-foreground: 210 40% 98%;
+
+    /* NOSTRO COLORE PRIMARIO: NEON CYAN */
+    --primary: 180 100% 50%; 
+    --primary-foreground: 222.2 47.4% 11.2%; /* Testo scuro su primario cyan */
+
+    /* Colori secondari e altri da shadcn dark theme (Slate) - utili per i componenti shadcn */
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 20.5%; /* Leggermente più chiaro per input fields */
+    --ring: 180 100% 50%; /* NOSTRO Neon Cyan per focus rings */
+
+    --radius: 0.5rem;
+
+    /* Colore Neon Cyan specifico per la nostra utility .text-neon-cyan */
+    --neon-cyan: 180 100% 50%; 
+
+    /* Variabili chart aggiunte da shadcn, le lasciamo per ora */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  body {
+    /* @apply bg-background text-foreground; Rimosso per far prevalere il gradiente */
+    color: hsl(var(--foreground));
+    background-image: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e); 
+    min-height: 100vh;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  /* Rimosso il blocco @layer base aggiuntivo di shadcn che applicava border-border a * */
+}
+
+@layer utilities {
+  /* Utility per testo Neon Cyan */
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow:
+      0 0 2px hsl(var(--neon-cyan)),
+      0 0 5px hsl(var(--neon-cyan)),
+      0 0 10px hsl(var(--neon-cyan));
+  }
+
+  /* Utility per Glass Card */
+  .card-glass {
+    @apply border shadow-lg;
+    /* Usiamo le variabili CSS per il bordo per coerenza con shadcn, ma con più trasparenza */
+    border-color: hsla(var(--border), 0.3);
+    background-color: hsla(var(--card), 0.2); /* Sfondo della card con trasparenza */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
