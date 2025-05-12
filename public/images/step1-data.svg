@@ -1,0 +1,41 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117" />
+      <stop offset="100%" stop-color="#0E374D" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg)" />
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="780" height="380" stroke="rgba(255,255,255,0.2)" stroke-width="4" fill="none" />
+  
+  <!-- Title -->
+  <text x="400" y="80" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">Step 1: Data Input</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="120" font-family="Arial" font-size="20" fill="white" text-anchor="middle">TweetCoa.ch Placeholder Image</text>
+  
+  <!-- Data points -->
+  <g opacity="0.7" fill="white">
+    <circle cx="150" cy="200" r="5" />
+    <circle cx="200" cy="230" r="7" />
+    <circle cx="250" cy="180" r="4" />
+    <circle cx="300" cy="210" r="6" />
+    <circle cx="350" cy="170" r="5" />
+    <circle cx="400" cy="240" r="7" />
+    <circle cx="450" cy="190" r="4" />
+    <circle cx="500" cy="220" r="6" />
+    <circle cx="550" cy="160" r="5" />
+    <circle cx="600" cy="230" r="7" />
+    <circle cx="650" cy="200" r="4" />
+  </g>
+  
+  <!-- Text labels -->
+  <text x="50" y="300" font-family="Arial" font-size="16" fill="white">Upload your Twitter data</text>
+  <text x="50" y="330" font-family="Arial" font-size="16" fill="white">CSV file analysis</text>
+  <text x="50" y="360" font-family="Arial" font-size="16" fill="white">Data processing</text>
+</svg> 

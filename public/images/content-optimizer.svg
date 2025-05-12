@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" rx="8" fill="#111722" />
+  
+  <!-- Header -->
+  <rect x="15" y="15" width="370" height="30" rx="6" fill="#1A2234" />
+  <text x="30" y="35" font-family="sans-serif" font-size="14" fill="#E2E8F0">Content Optimization</text>
+  <circle cx="360" cy="30" r="10" fill="#00E7FF" fill-opacity="0.2" />
+  <path d="M357 27L363 33M363 27L357 33" stroke="#00E7FF" stroke-width="1.5" stroke-linecap="round" />
+  
+  <!-- Tweet Input Area -->
+  <rect x="15" y="55" width="370" height="80" rx="6" fill="#1A2234" />
+  <rect x="25" y="65" width="350" height="60" rx="4" fill="#111722" />
+  <text x="35" y="85" font-family="sans-serif" font-size="12" fill="#E2E8F0">Just published a new guide on how to increase</text>
+  <text x="35" y="105" font-family="sans-serif" font-size="12" fill="#E2E8F0">your Twitter engagement by 3x in 30 days!</text>
+  <text x="35" y="125" font-family="sans-serif" font-size="12" fill="#00E7FF">Check it out here: example.com/guide</text>
+  
+  <!-- Optimization Scores -->
+  <rect x="15" y="145" width="118" height="45" rx="6" fill="#1A2234" />
+  <text x="25" y="165" font-family="sans-serif" font-size="11" fill="#A0AEC0">Clarity</text>
+  <rect x="65" y="157" width="60" height="8" rx="4" fill="#111722" />
+  <rect x="65" y="157" width="48" height="8" rx="4" fill="#00E7FF" />
+  <text x="130" y="165" font-family="sans-serif" font-size="11" fill="white">80%</text>
+  
+  <rect x="143" y="145" width="118" height="45" rx="6" fill="#1A2234" />
+  <text x="153" y="165" font-family="sans-serif" font-size="11" fill="#A0AEC0">Engagement</text>
+  <rect x="223" y="157" width="60" height="8" rx="4" fill="#111722" />
+  <rect x="223" y="157" width="54" height="8" rx="4" fill="#00E7FF" />
+  <text x="288" y="165" font-family="sans-serif" font-size="11" fill="white">90%</text>
+  
+  <rect x="271" y="145" width="114" height="45" rx="6" fill="#1A2234" />
+  <text x="281" y="165" font-family="sans-serif" font-size="11" fill="#A0AEC0">Reach</text>
+  <rect x="320" y="157" width="60" height="8" rx="4" fill="#111722" />
+  <rect x="320" y="157" width="42" height="8" rx="4" fill="#00E7FF" />
+  <text x="385" y="165" font-family="sans-serif" font-size="11" fill="white">70%</text>
+  
+  <!-- Improvement tags -->
+  <rect x="15" y="135" width="154" height="1" stroke="#1A2234" />
+  <text x="15" y="132" font-family="sans-serif" font-size="9" fill="#A0AEC0">SUGGESTIONS:</text>
+  <rect x="180" y="125" width="80" height="18" rx="9" fill="#00E7FF" fill-opacity="0.15" />
+  <text x="193" y="137" font-family="sans-serif" font-size="10" fill="#00E7FF">Add hashtags</text>
+  <rect x="270" y="125" width="115" height="18" rx="9" fill="#00E7FF" fill-opacity="0.15" />
+  <text x="283" y="137" font-family="sans-serif" font-size="10" fill="#00E7FF">Include question</text>
+</svg> 

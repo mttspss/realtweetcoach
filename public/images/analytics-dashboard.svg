@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" rx="8" fill="#111722" />
+  
+  <!-- Header -->
+  <rect x="15" y="15" width="370" height="35" rx="6" fill="#1A2234" />
+  <text x="30" y="37" font-family="sans-serif" font-size="14" fill="#E2E8F0">Twitter Analytics Summary</text>
+  <circle cx="360" cy="32" r="12" fill="#00E7FF" fill-opacity="0.2" />
+  <path d="M360 26V38M354 32H366" stroke="#00E7FF" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Metrics Cards -->
+  <rect x="15" y="60" width="110" height="70" rx="6" fill="#1A2234" />
+  <text x="30" y="82" font-family="sans-serif" font-size="12" fill="#A0AEC0">Impressions</text>
+  <text x="30" y="110" font-family="sans-serif" font-size="18" font-weight="bold" fill="white">28.5K</text>
+  <path d="M30 120L50 120" stroke="#00E7FF" stroke-width="2" />
+  
+  <rect x="135" y="60" width="110" height="70" rx="6" fill="#1A2234" />
+  <text x="150" y="82" font-family="sans-serif" font-size="12" fill="#A0AEC0">Engagement Rate</text>
+  <text x="150" y="110" font-family="sans-serif" font-size="18" font-weight="bold" fill="white">3.2%</text>
+  <path d="M150 120L170 120" stroke="#00E7FF" stroke-width="2" />
+  
+  <rect x="255" y="60" width="130" height="70" rx="6" fill="#1A2234" />
+  <text x="270" y="82" font-family="sans-serif" font-size="12" fill="#A0AEC0">New Followers</text>
+  <text x="270" y="110" font-family="sans-serif" font-size="18" font-weight="bold" fill="white">+124</text>
+  <path d="M270 120L290 120" stroke="#00E7FF" stroke-width="2" />
+  
+  <!-- Chart -->
+  <rect x="15" y="140" width="370" height="45" rx="6" fill="#1A2234" />
+  
+  <!-- Chart bars -->
+  <rect x="30" y="165" width="20" height="10" rx="2" fill="#00E7FF" />
+  <rect x="60" y="160" width="20" height="15" rx="2" fill="#00E7FF" />
+  <rect x="90" y="155" width="20" height="20" rx="2" fill="#00E7FF" />
+  <rect x="120" y="150" width="20" height="25" rx="2" fill="#00E7FF" />
+  <rect x="150" y="157" width="20" height="18" rx="2" fill="#00E7FF" />
+  <rect x="180" y="145" width="20" height="30" rx="2" fill="#00E7FF" />
+  <rect x="210" y="153" width="20" height="22" rx="2" fill="#00E7FF" />
+  <rect x="240" y="159" width="20" height="16" rx="2" fill="#00E7FF" />
+  <rect x="270" y="148" width="20" height="27" rx="2" fill="#00E7FF" />
+  <rect x="300" y="140" width="20" height="35" rx="2" fill="#00E7FF" />
+  <rect x="330" y="152" width="20" height="23" rx="2" fill="#00E7FF" />
+  
+  <text x="30" y="157" font-family="sans-serif" font-size="9" fill="#A0AEC0">Daily Tweet Performance</text>
+</svg> 

@@ -1,4 +1,4 @@
-// Placeholder per l'API upload
+// Placeholder per l'API chat
 export async function POST() {
   return new Response(JSON.stringify({ message: 'API placeholder - Funzionalità in arrivo' }), {
     headers: { 'content-type': 'application/json' }

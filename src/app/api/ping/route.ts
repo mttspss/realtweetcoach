@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server';
-
+// Placeholder per l'API ping
 export async function GET() {
-  return NextResponse.json({ message: 'Pong! Realtweetcoach API is live.', timestamp: new Date().toISOString() });
+  return new Response(JSON.stringify({ message: 'pong' }), {
+    headers: { 'content-type': 'application/json' }
+  });
 } 

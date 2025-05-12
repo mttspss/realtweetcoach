@@ -7,42 +7,63 @@
 
 @layer base {
   :root {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
-    --card: 222 47% 6%;
-    --card-foreground: 213 31% 91%;
-    --popover: 222 47% 6%;
-    --popover-foreground: 213 31% 91%;
-    --primary: 189 100% 50%;
+    --background: 222 47% 9%;
+    --foreground: 213 31% 95%;
+    --card: 222 47% 12%;
+    --card-foreground: 213 31% 95%;
+    --popover: 222 47% 12%;
+    --popover-foreground: 213 31% 95%;
+    --primary: 189 100% 55%;
     --primary-foreground: 222 47% 11%;
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 213 31% 91%;
-    --muted: 223 47% 11%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 188 96% 51%;
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 213 31% 95%;
+    --muted: 223 47% 15%;
+    --muted-foreground: 215 20% 75%;
+    --accent: 188 96% 55%;
     --accent-foreground: 222 47% 11%;
-    --destructive: 0 86% 66%;
-    --destructive-foreground: 213 31% 91%;
-    --border: 223 15% 15%;
-    --input: 223 15% 15%;
-    --ring: 184 95% 45%;
+    --destructive: 0 86% 70%;
+    --destructive-foreground: 213 31% 95%;
+    --border: 223 15% 20%;
+    --input: 223 15% 20%;
+    --ring: 184 95% 50%;
     --nav-height: 60px;
     
     /* New variables for better consistency */
-    --glass-bg: rgba(15, 20, 30, 0.5);
-    --glass-border: rgba(30, 42, 65, 0.8);
-    --glass-highlight: rgba(255, 255, 255, 0.03);
-    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(25, 30, 40, 0.6);
+    --glass-border: rgba(40, 52, 75, 0.8);
+    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
     
     /* Card gradients */
-    --card-gradient-1: linear-gradient(to bottom right, rgba(0, 231, 255, 0.1), rgba(29, 139, 255, 0.05));
-    --card-gradient-2: linear-gradient(to bottom right, rgba(29, 139, 255, 0.1), rgba(0, 231, 255, 0.05));
+    --card-gradient-1: linear-gradient(to bottom right, rgba(0, 231, 255, 0.15), rgba(29, 139, 255, 0.1));
+    --card-gradient-2: linear-gradient(to bottom right, rgba(29, 139, 255, 0.15), rgba(0, 231, 255, 0.1));
+    
+    /* Map key variables to Tailwind classes */
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+    --color-destructive: hsl(var(--destructive));
+    --color-destructive-foreground: hsl(var(--destructive-foreground));
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
   }
   
   body {
-    @apply bg-black text-gray-200 font-sans antialiased;
+    @apply bg-black text-gray-100 font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: radial-gradient(circle at center, #070b17, #000000);
+    background: radial-gradient(circle at center, #101522, #070a14);
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -67,6 +88,10 @@
   
   section {
     @apply py-12 md:py-16;
+  }
+  
+  .text-primary-darker {
+    @apply text-gray-300;
   }
 }
 
@@ -263,12 +288,11 @@
   
   /* Enhanced glass card */
   .glass-card {
-    @apply rounded-xl border border-opacity-50 backdrop-blur-md;
-    background: var(--glass-bg);
+    @apply relative z-10 border rounded-xl p-6 backdrop-blur-xl; 
+    background-color: var(--glass-bg);
     border-color: var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    position: relative;
-    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   }
   
   .glass-card::after {
@@ -506,12 +530,19 @@
 
 /* Progress Bar Animation */
 @keyframes progress {
-  from { width: 0; }
-  to { width: var(--progress-width, 100%); }
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 .animate-progress {
-  animation: progress 2s ease-out forwards;
+  animation: progress 3s ease-in-out forwards;
 }
 
 /* Enhanced Card Glow */

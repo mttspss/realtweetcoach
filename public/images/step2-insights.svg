@@ -1,0 +1,44 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117" />
+      <stop offset="100%" stop-color="#2C1A47" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg)" />
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="780" height="380" stroke="rgba(255,255,255,0.2)" stroke-width="4" fill="none" />
+  
+  <!-- Title -->
+  <text x="400" y="80" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">Step 2: AI Insights</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="120" font-family="Arial" font-size="20" fill="white" text-anchor="middle">TweetCoa.ch Placeholder Image</text>
+  
+  <!-- Bar chart -->
+  <g>
+    <rect x="160" y="150" width="30" height="150" fill="rgba(0,231,255,0.8)" />
+    <rect x="210" y="180" width="30" height="120" fill="rgba(0,231,255,0.7)" />
+    <rect x="260" y="130" width="30" height="170" fill="rgba(0,231,255,0.9)" />
+    <rect x="310" y="200" width="30" height="100" fill="rgba(0,231,255,0.6)" />
+    <rect x="360" y="160" width="30" height="140" fill="rgba(0,231,255,0.7)" />
+    <rect x="410" y="120" width="30" height="180" fill="rgba(0,231,255,0.8)" />
+  </g>
+  
+  <!-- Line chart -->
+  <polyline 
+    points="160,150 210,180 260,130 310,200 360,160 410,120" 
+    stroke="rgba(255,255,255,0.8)" 
+    stroke-width="3" 
+    fill="none" 
+  />
+  
+  <!-- Text labels -->
+  <text x="50" y="300" font-family="Arial" font-size="16" fill="white">Performance Analysis</text>
+  <text x="50" y="330" font-family="Arial" font-size="16" fill="white">AI-powered Insights</text>
+  <text x="50" y="360" font-family="Arial" font-size="16" fill="white">Tweet Optimization</text>
+</svg> 

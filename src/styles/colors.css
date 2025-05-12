@@ -1,0 +1,20 @@
+:root {
+  /* Cyan theme */
+  --color-accent: #00E7FF;
+  --color-accent-hover: #33EEFF;
+  --color-accent-dark: #00C2D8;
+  
+  /* Text colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
+  
+  /* Background colors */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1A1A1A;
+  
+  /* Border colors */
+  --color-border-primary: rgba(255, 255, 255, 0.1);
+  --color-border-secondary: rgba(255, 255, 255, 0.05);
+} 

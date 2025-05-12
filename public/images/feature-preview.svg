@@ -1,0 +1,59 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117" />
+      <stop offset="100%" stop-color="#2C1A47" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="450" fill="url(#bg)" />
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="780" height="430" stroke="rgba(255,255,255,0.2)" stroke-width="4" fill="none" />
+  
+  <!-- Title -->
+  <text x="400" y="80" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">Feature Preview</text>
+  
+  <!-- Feature blocks -->
+  <g>
+    <!-- Feature 1 -->
+    <rect x="100" y="150" width="180" height="200" rx="8" fill="rgba(0,231,255,0.1)" stroke="rgba(0,231,255,0.3)" stroke-width="1" />
+    <circle cx="140" cy="190" r="20" fill="rgba(0,231,255,0.3)" />
+    <rect x="120" y="230" width="140" height="10" rx="2" fill="rgba(255,255,255,0.8)" />
+    <rect x="120" y="250" width="140" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="120" y="265" width="140" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="120" y="280" width="100" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="120" y="310" width="80" height="20" rx="10" fill="rgba(0,231,255,0.4)" />
+    
+    <!-- Feature 2 -->
+    <rect x="310" y="150" width="180" height="200" rx="8" fill="rgba(231,0,231,0.1)" stroke="rgba(231,0,231,0.3)" stroke-width="1" />
+    <circle cx="350" cy="190" r="20" fill="rgba(231,0,231,0.3)" />
+    <rect x="330" y="230" width="140" height="10" rx="2" fill="rgba(255,255,255,0.8)" />
+    <rect x="330" y="250" width="140" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="330" y="265" width="140" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="330" y="280" width="100" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="330" y="310" width="80" height="20" rx="10" fill="rgba(231,0,231,0.4)" />
+    
+    <!-- Feature 3 -->
+    <rect x="520" y="150" width="180" height="200" rx="8" fill="rgba(231,231,0,0.1)" stroke="rgba(231,231,0,0.3)" stroke-width="1" />
+    <circle cx="560" cy="190" r="20" fill="rgba(231,231,0,0.3)" />
+    <rect x="540" y="230" width="140" height="10" rx="2" fill="rgba(255,255,255,0.8)" />
+    <rect x="540" y="250" width="140" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="540" y="265" width="140" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="540" y="280" width="100" height="6" rx="2" fill="rgba(255,255,255,0.3)" />
+    <rect x="540" y="310" width="80" height="20" rx="10" fill="rgba(231,231,0,0.4)" />
+  </g>
+  
+  <!-- Icons in circles -->
+  <g fill="white">
+    <!-- Upload icon -->
+    <path d="M140,185 L140,195 M135,190 L140,185 L145,190" stroke="white" stroke-width="2" fill="none" />
+    
+    <!-- Chart icon -->
+    <path d="M345,185 L345,195 M350,190 L355,185 L355,195" stroke="white" stroke-width="2" fill="none" />
+    
+    <!-- Sparkle icon -->
+    <path d="M560,185 L560,195 M555,190 L565,190" stroke="white" stroke-width="2" fill="none" />
+  </g>
+</svg> 

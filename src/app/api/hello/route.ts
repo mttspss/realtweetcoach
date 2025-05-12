@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server';
-
+// Placeholder per l'API hello
 export async function GET() {
-  return NextResponse.json({ hello: 'Next.js' });
+  return new Response(JSON.stringify({ message: 'hello world' }), {
+    headers: { 'content-type': 'application/json' }
+  });
 }

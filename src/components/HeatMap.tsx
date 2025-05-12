@@ -9,21 +9,21 @@ interface HeatMapDataPoint {
 }
 
 interface HeatMapProps {
-  // data: HeatMapDataPoint[];
-  // Potrebbe accettare anche startDate, endDate, etc.
+  // Aggiungere proprietà se necessario in futuro
+  className?: string;
 }
 
-export function HeatMap({}: HeatMapProps) {
-  // Dati di esempio
-  const exampleData: HeatMapDataPoint[] = [
-    { date: '2024-01-01', count: 2 },
-    { date: '2024-01-15', count: 5 },
-    { date: '2024-02-10', count: 1 },
-    // ... altri dati
-  ];
+export function HeatMap({ className }: HeatMapProps) {
+  // Dati di esempio - commentato per evitare l'avvertimento su variabili non utilizzate
+  // const exampleData: HeatMapDataPoint[] = [
+  //   { date: '2024-01-01', count: 2 },
+  //   { date: '2024-01-15', count: 5 },
+  //   { date: '2024-02-10', count: 1 },
+  //   // ... altri dati
+  // ];
 
   return (
-    <div className="p-4 rounded-lg bg-gray-800/30">
+    <div className={`p-4 rounded-lg bg-gray-800/30 ${className || ''}`}>
       <h3 className="text-lg font-semibold text-gray-200 mb-4">Tweet Activity Heatmap (Placeholder)</h3>
       <div className="bg-gray-700/50 h-48 flex items-center justify-center rounded">
         <p className="text-gray-400">Heatmap Component - Integration Pending</p>

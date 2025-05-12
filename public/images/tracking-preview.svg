@@ -1,0 +1,79 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1117" />
+      <stop offset="100%" stop-color="#193A3A" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="450" fill="url(#bg)" />
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="780" height="430" stroke="rgba(255,255,255,0.2)" stroke-width="4" fill="none" />
+  
+  <!-- Title -->
+  <text x="400" y="80" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">Tracking Preview</text>
+  
+  <!-- Left side: Tracking data -->
+  <g>
+    <!-- Text section -->
+    <rect x="100" y="150" width="300" height="50" rx="4" fill="none" />
+    <text x="100" y="170" font-family="Arial" font-size="20" fill="#00E7FF" font-weight="bold">Track Your Performance</text>
+    <text x="100" y="195" font-family="Arial" font-size="14" fill="#CCCCCC">Real-time analytics and growth metrics</text>
+    
+    <!-- Feature blocks -->
+    <g>
+      <!-- Item 1 -->
+      <rect x="100" y="220" width="300" height="40" rx="4" fill="rgba(255,255,255,0.05)" />
+      <circle cx="120" cy="240" r="10" fill="rgba(0,231,255,0.3)" />
+      <text x="140" y="245" font-family="Arial" font-size="14" fill="white">Visual Analytics</text>
+      
+      <!-- Item 2 -->
+      <rect x="100" y="270" width="300" height="40" rx="4" fill="rgba(255,255,255,0.05)" />
+      <circle cx="120" cy="290" r="10" fill="rgba(0,231,255,0.3)" />
+      <text x="140" y="295" font-family="Arial" font-size="14" fill="white">Growth Heatmaps</text>
+      
+      <!-- Item 3 -->
+      <rect x="100" y="320" width="300" height="40" rx="4" fill="rgba(255,255,255,0.05)" />
+      <circle cx="120" cy="340" r="10" fill="rgba(0,231,255,0.3)" />
+      <text x="140" y="345" font-family="Arial" font-size="14" fill="white">Performance Badges</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <rect x="100" y="380" width="180" height="40" rx="20" fill="rgba(0,231,255,0.3)" />
+    <text x="150" y="405" font-family="Arial" font-size="14" fill="white" text-anchor="start">Start Tracking</text>
+    <path d="M205,405 L215,405 M210,400 L215,405 L210,410" stroke="white" stroke-width="2" fill="none" />
+  </g>
+  
+  <!-- Right side: Chart visual -->
+  <g>
+    <!-- Container -->
+    <rect x="450" y="150" width="250" height="250" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+    
+    <!-- Chart axes -->
+    <line x1="480" y1="350" x2="680" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+    <line x1="480" y1="180" x2="480" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+    
+    <!-- Chart line -->
+    <polyline 
+      points="480,320 510,310 540,290 570,300 600,270 630,250 660,220 690,180" 
+      stroke="#00E7FF" 
+      stroke-width="2" 
+      fill="none" 
+    />
+    
+    <!-- Chart data points -->
+    <circle cx="480" cy="320" r="4" fill="#00E7FF" />
+    <circle cx="510" cy="310" r="4" fill="#00E7FF" />
+    <circle cx="540" cy="290" r="4" fill="#00E7FF" />
+    <circle cx="570" cy="300" r="4" fill="#00E7FF" />
+    <circle cx="600" cy="270" r="4" fill="#00E7FF" />
+    <circle cx="630" cy="250" r="4" fill="#00E7FF" />
+    <circle cx="660" cy="220" r="4" fill="#00E7FF" />
+    
+    <!-- Chart legend -->
+    <rect x="520" y="170" width="10" height="10" fill="#00E7FF" />
+    <text x="540" y="180" font-family="Arial" font-size="12" fill="white">Growth Trend</text>
+  </g>
+</svg> 

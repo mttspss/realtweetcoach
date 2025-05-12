@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/Navbar';
+import { NavbarWrapper } from '@/components/NavbarWrapper';
 import { Toaster } from 'sonner';
 import SupabaseProvider from '@/providers/SupabaseProvider';
 
@@ -95,7 +95,7 @@ export default function RootLayout({
         
         <SupabaseProvider>
           <div className="relative z-10">
-            <Navbar />
+            <NavbarWrapper />
             <main>
               {children}
             </main>
