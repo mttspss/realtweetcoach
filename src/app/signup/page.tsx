@@ -4,13 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { signIn } from 'next-auth/react';
 
 export default function SignupPage() {
   // Funzione per gestire il login con Google
   const handleGoogleLogin = () => {
-    // Qui implementerai la logica di autenticazione con Google
-    // Per ora, reindirizzo alla home page
-    window.location.href = '/auth/google';
+    signIn('google', { callbackUrl: '/dashboard' });
   };
 
   return (

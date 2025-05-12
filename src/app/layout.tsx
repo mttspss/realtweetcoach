@@ -1,9 +1,10 @@
+import './globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 import { NavbarWrapper } from '@/components/NavbarWrapper';
 import { Toaster } from 'sonner';
 import SupabaseProvider from '@/providers/SupabaseProvider';
+import SessionProvider from '@/providers/SessionProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,45 +18,30 @@ const inter = Inter({
 // !STARTERCONF Change these default meta
 // !STARTERCONF Look at @/constant/config to change them
 export const metadata: Metadata = {
-  title: 'Tweetcoa.ch - AI-powered Twitter analytics',
-  description: 'Take your Twitter presence to the next level with our AI-powered analytics platform.',
+  title: 'TweetCoa.ch - Your Twitter Growth Coach',
+  description: 'Analyze your Twitter data, get AI-powered tweet suggestions, and grow your account.',
+  keywords: [
+    'Twitter Analytics',
+    'Twitter Growth',
+    'Tweet Coach',
+    'Social Media Growth',
+    'Twitter AI',
+  ],
   metadataBase: new URL('https://tweetcoa.ch'),
   icons: {
-    icon: [
-      { url: '/favicon/favicon.ico' },
-      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      { url: '/favicon/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
-    ],
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
-  manifest: '/favicon/site.webmanifest',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://tweetcoa.ch',
-    title: 'Tweetcoa.ch - AI-powered Twitter analytics',
-    description: 'Take your Twitter presence to the next level with our AI-powered analytics platform.',
-    siteName: 'Tweetcoa.ch',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Tweetcoa.ch - AI-powered Twitter analytics',
-    description: 'Take your Twitter presence to the next level with our AI-powered analytics platform.',
-    creator: '@tweetcoach',
-  },
+  // manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 export const viewport: Viewport = {
   themeColor: '#070B17',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -93,14 +79,16 @@ export default function RootLayout({
           <div className="absolute inset-0 bg-gradient-radial from-transparent to-black opacity-20"></div>
         </div>
         
-        <SupabaseProvider>
-          <div className="relative z-10">
-            <NavbarWrapper />
-            <main>
-              {children}
-            </main>
-          </div>
-        </SupabaseProvider>
+        <SessionProvider>
+          <SupabaseProvider>
+            <div className="relative z-10">
+              <NavbarWrapper />
+              <main>
+                {children}
+              </main>
+            </div>
+          </SupabaseProvider>
+        </SessionProvider>
         
         <Toaster position="top-right" richColors />
       </body>

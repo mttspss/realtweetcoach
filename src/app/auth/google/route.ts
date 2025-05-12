@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 // Questa è una simulazione di autenticazione Google
 // In un'implementazione reale, qui utilizzeresti una libreria come next-auth
 // per gestire il flusso OAuth con Google
 
 export async function GET() {
-  // In un'implementazione reale, questo endpoint reindirizzerebbe all'URL di autenticazione Google
-  // Per ora, simuliamo reindirizzando alla homepage dopo un "login riuscito"
+  // Controlla se l'utente è già autenticato
+  const session = await getServerSession(authOptions);
   
-  return NextResponse.redirect(new URL('/', process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'));
+  if (session) {
+    // Se già autenticato, redirect alla dashboard
+    return NextResponse.redirect(new URL('/dashboard', process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'));
+  }
+  
+  // Altrimenti, redirect alla pagina di autenticazione Google tramite NextAuth
+  return NextResponse.redirect(new URL('/api/auth/signin/google', process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'));
 } 
