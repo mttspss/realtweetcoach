@@ -55,6 +55,22 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
+  // Scroll to section function
+  const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+    
+    // If not on homepage, navigate to home first then scroll
+    if (pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   if (!mounted) return null;
 
   return (
@@ -71,7 +87,7 @@ export function Navbar() {
         transition={{ duration: 0.3 }}
       >
         <div className="max-w-[1120px] mx-auto px-4">
-          <div className="suprema-frame bg-black/80 border-white/5 backdrop-blur-md rounded-2xl shadow-[0px_16px_30px_0px_rgba(0,0,0,0.5),0px_2px_2px_0px_rgba(0,0,0,0.5)]">
+          <div className="suprema-frame bg-black/80 border border-[#00E7FF]/30 backdrop-blur-md rounded-2xl shadow-[0px_16px_30px_0px_rgba(0,0,0,0.5),0px_2px_2px_0px_rgba(0,0,0,0.5),0px_0px_10px_rgba(0,231,255,0.15)]">
             <nav className="flex items-center justify-between px-4 md:px-8 h-[60px]">
               {/* Logo */}
               <Link href="/" className="flex items-center space-x-2 group">
@@ -92,10 +108,24 @@ export function Navbar() {
                 <NavLink href="/" active={pathname === '/'}>
                   Home
                 </NavLink>
-                <NavLink href="/features" active={pathname === '/features'}>
+                <NavLink 
+                  href="#features" 
+                  active={pathname === '/features'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('features');
+                  }}
+                >
                   Features
                 </NavLink>
-                <NavLink href="/pricing" active={pathname === '/pricing'}>
+                <NavLink 
+                  href="#pricing" 
+                  active={pathname === '/pricing'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('pricing');
+                  }}
+                >
                   Pricing
                 </NavLink>
               </div>
@@ -104,7 +134,7 @@ export function Navbar() {
               <div className="hidden md:block">
                 <Link 
                   href="/signup" 
-                  className="relative inline-flex items-center justify-center whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium bg-white text-black hover:bg-[#00E7FF] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,231,255,0.25)] overflow-hidden group btn-white"
+                  className="relative inline-flex items-center justify-center whitespace-nowrap rounded-full px-5 py-2 text-sm font-medium bg-white text-black hover:bg-[#00E7FF] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,231,255,0.25)] overflow-hidden group btn-white"
                 >
                   <div className="text-slide-container">
                     <span className="text-slide-normal">Sign Up</span>
@@ -143,17 +173,31 @@ export function Navbar() {
           <NavLinkMobile href="/" active={pathname === '/'}>
             Home
           </NavLinkMobile>
-          <NavLinkMobile href="/features" active={pathname === '/features'}>
+          <NavLinkMobile 
+            href="#features" 
+            active={pathname === '/features'}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('features');
+            }}
+          >
             Features
           </NavLinkMobile>
-          <NavLinkMobile href="/pricing" active={pathname === '/pricing'}>
+          <NavLinkMobile 
+            href="#pricing" 
+            active={pathname === '/pricing'}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('pricing');
+            }}
+          >
             Pricing
           </NavLinkMobile>
 
           <div className="mt-8 pt-8 border-t border-white/5">
             <Link
               href="/signup"
-              className="relative block w-full text-center px-5 py-2.5 rounded-xl bg-white hover:bg-[#00E7FF] text-black font-medium text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,231,255,0.25)] overflow-hidden group btn-white"
+              className="relative block w-full text-center px-5 py-2.5 rounded-full bg-white hover:bg-[#00E7FF] text-black font-medium text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(0,231,255,0.25)] overflow-hidden group btn-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               <div className="text-slide-container">
@@ -171,11 +215,13 @@ export function Navbar() {
 function NavLink({ 
   href, 
   children, 
-  active = false 
+  active = false,
+  onClick
 }: { 
   href: string; 
   children: React.ReactNode; 
   active?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) {
   return (
     <Link
@@ -185,6 +231,7 @@ function NavLink({
           ? 'nav-item-active' 
           : 'text-[#929691] hover:text-white group'
       }`}
+      onClick={onClick}
     >
       {active ? (
         <span className="block">{children}</span>
@@ -201,11 +248,13 @@ function NavLink({
 function NavLinkMobile({ 
   href, 
   children, 
-  active = false 
+  active = false,
+  onClick
 }: { 
   href: string; 
   children: React.ReactNode; 
   active?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) {
   return (
     <Link
@@ -215,6 +264,7 @@ function NavLinkMobile({
           ? 'nav-item-active' 
           : 'text-[#929691] hover:text-white hover:bg-black/30 group'
       }`}
+      onClick={onClick}
     >
       {active ? (
         <span className="block">{children}</span>
