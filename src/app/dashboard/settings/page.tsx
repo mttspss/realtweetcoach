@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   User, 
   Lock, 
@@ -10,6 +10,73 @@ import {
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('profile');
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    email: '',
+    twitter: '',
+    bio: ''
+  });
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState('');
+  
+  // Load user preferences from localStorage
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const storedPreferences = localStorage.getItem('userPreferences');
+        if (storedPreferences) {
+          const preferences = JSON.parse(storedPreferences);
+          setUserInfo(prev => ({
+            ...prev,
+            twitter: preferences.twitterUsername || '',
+            name: preferences.userName || '',
+            email: preferences.userEmail || '',
+            bio: preferences.userBio || ''
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('Error loading user preferences:', error);
+    }
+  }, []);
+  
+  const handleSaveChanges = () => {
+    setIsSaving(true);
+    setSaveMessage('');
+    
+    try {
+      if (typeof window !== 'undefined') {
+        // Get existing preferences
+        const storedPreferences = localStorage.getItem('userPreferences');
+        const preferences = storedPreferences ? JSON.parse(storedPreferences) : {};
+        
+        // Update with new values
+        const updatedPreferences = {
+          ...preferences,
+          twitterUsername: userInfo.twitter,
+          userName: userInfo.name,
+          userEmail: userInfo.email,
+          userBio: userInfo.bio
+        };
+        
+        // Save to localStorage
+        localStorage.setItem('userPreferences', JSON.stringify(updatedPreferences));
+        
+        // Show success message
+        setSaveMessage('Settings saved successfully!');
+        
+        // Clear message after 3 seconds
+        setTimeout(() => {
+          setSaveMessage('');
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Error saving user preferences:', error);
+      setSaveMessage('Error saving settings. Please try again.');
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   return (
     <div className="p-6 pb-20">
@@ -74,7 +141,9 @@ export default function SettingsPage() {
                     type="text"
                     id="name"
                     className="w-full bg-zinc-800 border border-zinc-700 rounded-md py-2 px-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20"
-                    defaultValue="Buildora Corp"
+                    value={userInfo.name}
+                    onChange={(e) => setUserInfo({...userInfo, name: e.target.value})}
+                    placeholder="Your name"
                   />
                 </div>
                 
@@ -86,7 +155,9 @@ export default function SettingsPage() {
                     type="email"
                     id="email"
                     className="w-full bg-zinc-800 border border-zinc-700 rounded-md py-2 px-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20"
-                    defaultValue="buildoraeu@gmail.com"
+                    value={userInfo.email}
+                    onChange={(e) => setUserInfo({...userInfo, email: e.target.value})}
+                    placeholder="your.email@example.com"
                   />
                 </div>
                 
@@ -102,7 +173,9 @@ export default function SettingsPage() {
                       type="text"
                       id="twitter"
                       className="flex-1 bg-zinc-800 border border-zinc-700 rounded-r-md py-2 px-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20"
-                      defaultValue="buildoraHQ"
+                      value={userInfo.twitter}
+                      onChange={(e) => setUserInfo({...userInfo, twitter: e.target.value})}
+                      placeholder="username"
                     />
                   </div>
                 </div>
@@ -115,14 +188,26 @@ export default function SettingsPage() {
                     id="bio"
                     rows={4}
                     className="w-full bg-zinc-800 border border-zinc-700 rounded-md py-2 px-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/20"
-                    defaultValue="Building the future of Twitter growth analytics with AI."
+                    value={userInfo.bio}
+                    onChange={(e) => setUserInfo({...userInfo, bio: e.target.value})}
+                    placeholder="Tell us about yourself"
                   />
                 </div>
                 
                 <div className="pt-4">
-                  <button className="px-4 py-2 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors">
-                    Save Changes
+                  <button 
+                    onClick={handleSaveChanges}
+                    disabled={isSaving}
+                    className="px-4 py-2 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors disabled:bg-white/50 disabled:cursor-not-allowed"
+                  >
+                    {isSaving ? 'Saving...' : 'Save Changes'}
                   </button>
+                  
+                  {saveMessage && (
+                    <p className={`mt-2 text-sm ${saveMessage.includes('Error') ? 'text-red-400' : 'text-green-400'}`}>
+                      {saveMessage}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -20,6 +20,7 @@ import {
   Home
 } from 'lucide-react';
 import { useSupabase } from '@/providers/SupabaseProvider';
+import { signOut, useSession } from 'next-auth/react';
 
 export default function DashboardLayout({
   children,
@@ -27,8 +28,15 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const { session } = useSupabase();
-  const userEmail = session?.user?.email || '';
-  const userName = userEmail ? userEmail.split('@')[0] : 'User';
+  const { data: nextAuthSession } = useSession();
+  
+  // Usa principalmente NextAuth, ma fallback su Supabase se necessario
+  const userEmail = nextAuthSession?.user?.email || session?.user?.email || '';
+  const userName = nextAuthSession?.user?.name || (userEmail ? userEmail.split('@')[0] : 'User');
+  
+  const handleLogout = () => {
+    signOut({ callbackUrl: '/' });
+  };
   
   return (
     <div className="min-h-screen bg-black flex">
@@ -60,19 +68,22 @@ export default function DashboardLayout({
           {/* Workspace dropdown */}
           <div className="flex items-center justify-between p-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer mb-3">
             <div className="flex items-center">
-              <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-white text-xs font-medium bg-white/10">
+              <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full text-white text-xs font-medium bg-cyan-600">
                 {userName.charAt(0).toUpperCase()}
               </div>
               <div className="ml-2">
                 <div className="text-xs font-medium text-white">{userName}</div>
-                <div className="text-[10px] text-gray-400">Free Plan</div>
+                <div className="text-[10px] text-gray-400">{userEmail}</div>
               </div>
             </div>
             <ChevronDown size={14} className="text-gray-400" />
           </div>
           
           {/* Logout button */}
-          <button className="w-full flex items-center text-xs gap-2 rounded-lg px-3 py-2 hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+          <button 
+            onClick={handleLogout}
+            className="w-full flex items-center text-xs gap-2 rounded-lg px-3 py-2 hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+          >
             <LogOut size={14} />
             <span>Logout</span>
           </button>
@@ -91,7 +102,7 @@ function NavLinks() {
   const pathname = usePathname();
   
   const links = [
-    { href: '/dashboard', label: 'Home', icon: <LayoutDashboard size={16} /> },
+    { href: '/dashboard', label: 'Project Board', icon: <LayoutDashboard size={16} /> },
     { href: '/dashboard/growth-analyser', label: 'Growth Analyser', icon: <Upload size={16} /> },
     { href: '/dashboard/growth-plan', label: 'Growth Plan', icon: <BarChart2 size={16} /> },
     { href: '/dashboard/content-planner', label: 'Content Planner', icon: <Sparkles size={16} /> },
@@ -100,7 +111,7 @@ function NavLinks() {
     { href: '/dashboard/tones', label: 'Voice Tones', icon: <Edit size={16} /> },
     { href: '/ideas', label: 'Ideas', icon: <Lightbulb size={16} /> },
     { href: '/reports', label: 'Reports', icon: <BarChart2 size={16} /> },
-    { href: '/settings', label: 'Settings', icon: <Settings size={16} /> },
+    { href: '/dashboard/settings', label: 'Settings', icon: <Settings size={16} /> },
   ];
   
   // Group links into categories
